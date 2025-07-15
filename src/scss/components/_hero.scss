@@ -1,0 +1,231 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* висота секції */
+    overflow: hidden;
+    @media screen and (max-width: 480px) { 
+        height: 100%;  
+    }
+}
+
+/* напівпрозорий шар */
+.hero-overlay {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, .8);  
+}
+
+/* фон відео */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // opacity: .2;
+    z-index: -3;
+}
+
+/* відео розтягується на весь фон */
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.hero-inner {
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 480px) {
+        margin-top: 85px; 
+        flex-direction: column; 
+        align-items: flex-start;   
+    }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 48px;
+    @media screen and (max-width: 480px) {
+        width: 100%;        
+    }
+}
+
+.hero-title {
+    color: #FFF;
+    // leading-trim: both;
+    // text-edge: cap;
+    max-width: 700px;
+    width: 100%;
+    font-family: "Plus Jakarta Sans";
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.1; /* 68.2px */
+    letter-spacing: -1.86px;
+    text-transform: uppercase;
+    @media screen and (max-width: 480px) {
+        font-size: 40px;
+        max-width: 342px;
+    }
+}
+
+.hero-text {
+    color: rgba(255, 255, 255, 0.70);
+    // leading-trim: both;
+    // text-edge: cap;
+    max-width: 680px;
+    width: 100%;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.8; /* 28.8px */
+    @media screen and (max-width: 480px) {
+        max-width: 342px;    
+    }
+}
+
+.hero-content-buttons {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        gap: 45px;     
+    }
+}
+
+.hero-buttons {
+    display: flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    color: #000;
+    // leading-trim: both;
+    // text-edge: cap;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.4; /* 22.4px */
+    letter-spacing: -0.32px;
+
+    border-radius: 70px;
+    border: 1px solid #A1C7FF;
+    background: #FFF;
+    cursor: pointer;
+    transition: all 300ms linear;
+    @media screen and (max-width: 480px) {
+        width: 100%;     
+    }
+}
+
+.hero-buttons path {
+    transition: stroke 300ms linear;
+}
+
+.hero-buttons:hover {
+    color: #FFF;
+    background: none;
+}
+
+.hero-buttons:hover path {
+    stroke: #FFF;
+}
+
+.hero-buttons:active {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.hero-link {
+    color: #A1C7FF;
+    // leading-trim: both;
+    // text-edge: cap;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.8; /* 28.8px */
+    text-decoration: none;
+    transition: text-decoration 300ms ease;
+}
+
+.hero-link:hover {
+    text-decoration: underline;
+}
+
+.hero-link:active {
+    color: #FFF;
+}
+
+.hero-block {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    position: relative;
+    @media screen and (max-width: 480px) {
+        align-items: center;   
+        margin-top: 53px;   
+    }
+}   
+
+.hero-block-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    // gap: 9px;
+    @media screen and (max-width: 480px) {
+        justify-content: center;
+        align-items: center;     
+    }
+}
+
+.hero-block-item img {
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
+}
+
+.hero-block-img {
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
+}
+
+.hero-arrow {
+    position: absolute;
+    left: -60px;
+    bottom: -25px;
+    border-radius: 683.544px;
+    background: #A1C7FF;
+    box-shadow: 0px 30.076px 50.582px -6.835px rgba(0, 0, 0, 0.44);
+    width: 108px;
+    height: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 480px) {
+        display: none;     
+    }
+}
+
+.hero-mobile-img {
+    display: none;
+    @media screen and (max-width: 480px) {
+        display: block;  
+        padding-right: 50px;  
+    }
+}

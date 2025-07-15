@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="./src/images/favicon.svg" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evertech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Questrial&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/scss/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo">
+          <a href="/"><img src="./src/images/logo.svg" width="169" height="24" alt="Logo"></a>
+        </div>
+  
+        <div class="burger">
+          <img src="./src/images/burger-lines.svg" alt="Burger">
+        </div>
+  
+        <div class="header-menu">
+          <img src="./src/images/mobile-burger.svg" width="158" height="157" alt="" class="burger-bg">
+          <div class="burger-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+              <path d="M9.5 28.5L28.5 9.5M9.5 9.5L28.5 28.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <a href="#about" class="header-link">Who We Are</a>
+          <a href="#product" class="header-link">What We Offer</a>
+          <a href="#work" class="header-link">How We Work</a>
+          <a href="#contacts" class="header-link">Our Contacts</a>
+
+          <div class="header-mobile-inner">
+            <img src="./src/images/mobile-logo.svg" alt="">
+            <p class="header-mobile-text">Evertech delivers actionable sports & esports data along with tailored web marketing solutions to help your platform grow faster and rank higher — globally.</p>
+          </div>
+        </div>
+  
+        <div class="header-buttons mobile-visible">
+          <button class="header-button">Let’s Talk</button>
+          <button onclick="location.href='mailto:info@ever-tech.co'" class="header-email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M4.6437 4.7998H20.5437C22.0437 4.7998 22.7997 5.5078 22.7997 6.9478V17.0518C22.7997 18.4798 22.0437 19.1998 20.5437 19.1998H4.6437C3.1437 19.1998 2.3877 18.4798 2.3877 17.0518V6.9478C2.3877 5.5078 3.1437 4.7998 4.6437 4.7998ZM12.5877 15.1198L20.6757 8.4838C20.9637 8.2438 21.1917 7.6918 20.8317 7.1998C20.4837 6.7078 19.8477 6.6958 19.4277 6.9958L12.5877 11.6278L5.7597 6.9958C5.3397 6.6958 4.7037 6.7078 4.3557 7.1998C3.9957 7.6918 4.2237 8.2438 4.5117 8.4838L12.5877 15.1198Z" fill="#292929"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="form-popup-overlay" id="formPopup">
+    <div class="form-popup">
+      <button class="form-close-btn">&times;</button>
+      <img class="form-popup-img" src="./src/images/popup-img.svg" alt="">
+  
+      <div class="form-popup-header">
+        <h3>Any questions?</h3>
+        <a href="mailto:info@ever-tech.co" class="form-popup-link">Send message :)</a>
+      </div>
+  
+      <form class="form-popup-form" id="contactForm">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+  
+        <label class="form-checkbox">
+          <input type="checkbox" name="subscribe">
+          <span>Subscribe to news</span>
+        </label>
+  
+        <button type="submit" class="form-submit-btn">
+          Send
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M5 12H19M12 5l7 7-7 7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="status-popup-overlay" id="successPopup">
+    <div class="status-popup">
+      <button class="status-close">&times;</button>
+      <h2>Success!</h2>
+      <img src="./src/images/succes-popup.svg" width="83" height="83" alt="Success Icon" class="status-icon">
+      <p>Your application has been accepted.<br>You will be contacted shortly for further details.</p>
+      <button class="status-button">Continue <span>→</span></button>
+    </div>
+  </div>
+  
+  <!-- ПОПАП ПОМИЛКИ -->
+  <div class="status-popup-overlay" id="errorPopup">
+    <div class="status-popup">
+      <button class="status-close">&times;</button>
+      <h2>Error!</h2>
+      <img src="./src/images/error-popup.svg" width="83" height="83" alt="Error Icon" class="status-icon">
+      <p>Something went wrong.<br>Please try again!</p>
+      <button class="status-button">Continue <span>→</span></button>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="video-background">
+      <video autoplay muted loop playsinline>
+        <source src="./src/videos/6633565 Sand Wind 3840X2160.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">Real-Time Sports Data Meets Digital Marketing Precision</h1>
+          <p class="hero-text">Evertech delivers actionable sports & esports data along with tailored web marketing solutions to help your platform grow faster and rank higher — globally.</p>
+
+          <div class="hero-content-buttons">
+            <button class="hero-buttons">Get Started 
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 5L19 12L12 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <a href="#product" class="hero-link">View Services</a>
+          </div>
+        </div>
+
+        <div class="hero-block">
+
+          <img class="hero-block-img" src="./src/images/hero.png" width="519" height="363" alt="">
+          <img src="./src/images/hero-mobile.png" alt="" class="hero-mobile-img">
+          <div class="hero-block-list">
+            <div class="hero-block-item">
+              <!-- <p class="hero-block-item-num">>10</p>
+              <p class="hero-block-item-text">top-rated services</p> -->
+              <img src="./src/images/hero-item1.svg" width="258" height="173" alt="">
+            </div>
+            <div class="hero-block-item">
+              <!-- <p class="hero-block-item-num">50+</p>
+              <p class="hero-block-item-text">big companies work and trust us very much</p> -->
+              <img src="./src/images/hero-item2.svg" width="258" height="173" alt="">
+            </div>
+          </div>
+
+          <div class="hero-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M46 12L27 31L17 21L2 36" stroke="#292929" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M34 12H46V24" stroke="#292929" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <p class="about-suptitle">about us</p>
+      <div class="about-content">
+        <h2 class="about-title">Dual expertise, singular focus: your growth</h2>
+        <p class="about-text">At Evertech, we bring together two powerful capabilities: live data aggregation from global sports and esports ecosystems, and strategic digital marketing services that drive long-term results. We help online businesses operate smarter, engage more users, and rank higher through structured content and modern web strategies.</p>
+      </div>
+
+      <div class="about-inner">
+        <div class="about-context">
+          <h4 class="about-context-title">What Sets Us Apart</h4>
+          <p class="about-context-text">Whether you're integrating real-time data or launching a new online service, we ensure your brand is backed by intelligence and designed for traction.</p>
+        </div>
+
+        <!-- <div class="about-wrapper"> -->
+
+          <div class="about-list">
+            <div class="about-item first-item">
+              <img src="./src/images/about1.png" alt="" class="about-item-bg">
+              <p class="about-item-num">1</p>
+              <p class="about-item-title">Full-Spectrum Marketing Support </p>
+              <p class="about-item-text">From design to SEO, we offer modular services built to improve traffic, UX, and visibility.</p>
+            </div>
+
+            <div class="about-item second-item">
+              <img src="./src/images/about2.png" alt="" class="about-item-bg">
+              <p class="about-item-num">2</p>
+              <p class="about-item-title">Specialized Data Aggregation</p>
+              <p class="about-item-text">We track and compile content from global competitions, turning fragmented information into ready-to-use structured data.</p>
+            </div>
+            <div class="about-item third-item">
+              <img src="./src/images/about3.png" alt="" class="about-item-bg">
+              <p class="about-item-num">3</p>
+              <p class="about-item-title">Agile, Scalable Infrastructure</p>
+              <p class="about-item-text">Our systems and teams adapt quickly to changing content requirements and search engine trends.</p>
+            </div>
+          <!-- </div> -->
+
+          <!-- <div class="about-list"> -->
+            
+            <div class="about-item fourth-item">
+              <img src="./src/images/about4.png" alt="" class="about-item-bg">
+              <p class="about-item-num">4</p>
+              <p class="about-item-title">Results-Oriented Mindset</p>
+              <p class="about-item-text">Every solution is aligned with measurable business goals — not guesswork.</p>
+            </div>
+          </div>
+
+        <!-- </div> -->
+
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="why-inner">
+
+      <div class="why-block">
+        <h3 class="why-title">Why choose Evertech?</h3>
+        <p class="why-text">In a saturated marketplace, differentiation comes from precision. Evertech distinguishes itself by combining the depth of a data provider with the agility of a marketing agency.</p>
+        <div class="why-content-buttons">
+          <button class="why-buttons">Get Started 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <a href="#product" class="why-link">View Services</a>
+        </div>
+      </div>
+    
+
+      <div class="why-akardeon">
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Reliable global data streams</h4>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>We continuously track events from around the world, ensuring you receive the most current and relevant information, tailored to your sector and audience.</p>
+            </div>
+          </div>
+        
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>End-to-end digital services</h4>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>From visual design to algorithmic visibility, our services work cohesively to support full-funnel digital initiatives.</p>
+            </div>
+          </div>
+        
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Adaptable delivery models</h4>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Whether you need an ongoing data feed, a one-time SEO overhaul, or a complete digital relaunch, our modular services fit your scope.</p>
+            </div>
+          </div>
+        
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Industry-centric expertise</h4>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Our team operates with a deep understanding of online platform dynamics, sports content relevance, and user acquisition strategies — making us a valuable long-term partner for tech-forward enterprises.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="product" class="offer">
+    
+    <div class="offer-content">
+      <p class="offer-suptitle">What We Offer</p>
+      <h3 class="offer-title">Built for digital impact</h3>
+      <p class="offer-text">At the heart of Evertech is a robust data aggregation infrastructure built to capture, compile, and deliver relevant sports and esports content with unmatched accuracy and timeliness.</p>
+    </div>
+    <div class="container">
+      <div class="offer-block">
+        <img class="offer-bg" src="./src/images/ellipse-offer1.png" width="477" height="477" alt="">
+        <img class="offer-ellips" width="431" height="431" src="./src/images/ellipse-offer2.png" alt="">
+        <div class="offer-context">
+          <p class="offer-block-text">We monitor thousands of global competitions and delivering structured data in multiple formats for easy integration.</p>
+          <div class="offer-buttons">
+            <button class="offer-btn visibile" data-type="sports">Sports & Esports Data Subscription</button>
+            <button class="offer-btn" data-type="marketing">Digital Marketing & Web Services</button>
+          </div>
+        </div>
+
+        <div class="swiper offer-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slides inserted dynamically -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="digital">
+    <div class="container">
+      <div class="digital-context">
+        <h3 class="digital-title">Designed for digital pioneers</h3>
+        <p class="digital-text">Our clients span a diverse range of industries united by a shared need for reliable data and competitive digital performance. Whether you're scaling an affiliate platform, launching a sports-focused app, or managing content-heavy services, Evertech supports your operational and promotional layers alike.</p>
+      </div>
+    </div>
+
+    <div class="digital-inner">
+    
+      <div class="digital-slider">
+        <div class="swiper digital-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h4 class="swiper-title">We serve businesses including but not limited to:</h4>
+              <p class="swiper-text">Sports media companies seeking real-time content to engage audiences</p>
+            </div>
+            <div class="swiper-slide">
+              <h4 class="swiper-title">We serve businesses including but not limited to:</h4>
+              <p class="swiper-text">Esports platforms in need of high-frequency updates and event intelligence</p>
+            </div>
+            <div class="swiper-slide">
+              <h4 class="swiper-title">We serve businesses including but not limited to:</h4>
+              <p class="swiper-text">Affiliate networks aiming for higher organic reach and content relevance</p>
+            </div>
+            <div class="swiper-slide">
+              <h4 class="swiper-title">We serve businesses including but not limited to:</h4>
+              <p class="swiper-text">Online marketplaces requiring optimized, user-friendly digital touchpoints</p>
+            </div>
+            <div class="swiper-slide">
+              <h4 class="swiper-title">We serve businesses including but not limited to:</h4>
+              <p class="swiper-text">Marketing agencies outsourcing specialized design or <br> SEO functions</p>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="digital-controls">
+          <button class="digital-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path d="M12 4l-6 6 6 6" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+      
+          <div class="digital-pagination">
+            <span class="digital-current">01</span>/05
+          </div>
+      
+          <button class="digital-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path d="M8 4l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="work">
+    <div class="container">
+      <p class="work-suptitle">how we work</p>
+      <div class="work-block">
+        <h3 class="work-title">Every client engagement starts with clarity, and ends with performance</h3>
+        <div class="work-inner">
+          <p class="work-text">Simple, Efficient, Results-Driven. Our process is built for ease of collaboration and measurable progress. Our team is responsive, specialized, and committed to helping your digital presence deliver more.</p>
+          <button class="work-button">
+            Let’s Talk
+          </button>
+        </div>
+      </div>
+      <div class="work-list">
+        <div class="work-item">
+          <img src="./src/images/work-logo.svg" width="20" height="20" alt="">
+          <p class="work-item-step">Step 1</p>
+          <h4 class="work-item-title">Discovery & Requirements Mapping</h4>
+          <p class="work-item-text">We begin with an in-depth consultation to understand your goals, challenges, and operating environment. This helps us tailor our service packages for maximum relevance.</p>
+        </div>
+        <div class="work-item">
+          <img src="./src/images/work-logo.svg" width="20" height="20" alt="">
+          <p class="work-item-step">Step 2</p>
+          <h4 class="work-item-title">Strategic Planning & Scope Definition</h4>
+          <p class="work-item-text">We prepare a structured service proposal with timelines, deliverables, and key performance indicators. Whether for data integration or marketing execution, you’ll have clear visibility on what to expect.</p>
+        </div>
+        <div class="work-item">
+          <img src="./src/images/work-logo.svg" width="20" height="20" alt="">
+          <p class="work-item-step">Step 3</p>
+          <h4 class="work-item-title">Implementation & Launch</h4>
+          <p class="work-item-text">Once approved, we initiate development or integration. For data clients, this means activating feed access and testing. For digital marketing, it involves building and optimizing based on defined strategies.</p>
+        </div>
+        <div class="work-item">
+          <img src="./src/images/work-logo.svg" width="20" height="20" alt="">
+          <p class="work-item-step">Step 4</p>
+          <h4 class="work-item-title">Continuous Support & Iteration</h4>
+          <p class="work-item-text">We monitor performance and adjust based on evolving needs and market trends. From SEO algorithm shifts to new sports seasons, our services evolve with your business context.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts">
+    <div class="contacts-overlay"></div>
+    <div class="contacts-video-background">
+      <video autoplay muted loop playsinline>
+        <source src="./src/videos/1272718 Peaceful Sea 3840X2160.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="container">
+      <div class="contacts-inner">
+        <p class="contacts-suptitle">Get Started now</p>
+        <h4 class="contacts-title">Let’s Build Something Intelligent Together</h4>
+        <p class="contacts-text">Whether you need consistent data for your platform or an expert-led push to boost digital visibility, Evertech is ready to support your next phase of growth. </p>
+        <button class="hero-buttons">Get Started 
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5L19 12L12 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-list">
+        <div class="footer-item">
+          <img src="./src/images/footer-img.svg" width="204" height="29" alt="" class="footer-logo">
+          <p class="footer-text">Evertech delivers actionable sports & esports data along with tailored web marketing solutions to help your platform grow faster and rank higher — globally.</p>
+        </div>
+        <div class="footer-item">
+          <div class="footer-item-title">Navigation</div>
+          <div class="footer-item-inner">
+            <a href="#about" class="footer-item-inner-link">Who We Are</a>
+            <a href="#product" class="footer-item-inner-link">What We Offer </a>
+            <a href="#work" class="footer-item-inner-link">How We Work</a>
+            <a href="#contacts" class="footer-item-inner-link">Our Contacts</a>
+          </div>
+        </div>
+        <div class="footer-item">
+          <div class="footer-item-title">Contact</div>
+          <div class="footer-item-inner">
+            <a href="mailto:info@ever-tech.co" class="footer-item-inner-link">info@ever-tech.co</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copyright">© Copyright 2025.<br> EVERTECH GROUP LTD. All Right Reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>

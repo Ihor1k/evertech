@@ -1,0 +1,15 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #EEF4FD;
+}
+
+body.noscroll {
+    overflow: hidden;
+}
+
+video {
+    filter: grayscale(100%);
+}

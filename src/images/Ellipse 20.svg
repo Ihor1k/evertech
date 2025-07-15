@@ -1,0 +1,17 @@
+<svg width="875" height="926" viewBox="0 0 875 926" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_gf_13_2364)">
+<circle cx="646.5" cy="288.5" r="238.5" fill="#6F6F6F"/>
+</g>
+<defs>
+<filter id="filter0_gf_13_2364" x="0.5" y="-357.5" width="1292" height="1292" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.4285714626312256 1.4285714626312256" numOctaves="3" seed="5251" />
+<feDisplacementMap in="shape" scale="200" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_13_2364">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+<feGaussianBlur stdDeviation="203.75" result="effect2_foregroundBlur_13_2364"/>
+</filter>
+</defs>
+</svg>

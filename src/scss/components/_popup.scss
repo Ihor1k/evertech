@@ -1,0 +1,248 @@
+.form-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 8, 8, 0.35);
+    backdrop-filter: blur(7.599999904632568px);
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Відкритий стан */
+  .form-popup-overlay.active {
+    display: flex;
+  }
+  
+  /* Вікно форми */
+  .form-popup {
+    background: #fff;
+    width: 100%;
+    max-width: 557px;
+    height: 100%;
+    padding: 40px 80px 66px 80px;
+    border-radius: 24px 0 0 24px;
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: slideIn 0.3s ease;
+    @media screen and (max-width: 480px) {
+        border-radius: unset; 
+        padding: 24px ;       
+    }
+  }
+  
+  /* Анімація */
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Хедер */
+  .form-popup-header h3 {
+    color: #292929;
+    font-family: "Plus Jakarta Sans";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2; /* 121.429% */
+    letter-spacing: -0.4px;
+    margin-top: 160px;
+    @media screen and (max-width: 480px) {
+      font-size: 25px; 
+      margin-top: 100px;      
+    }
+  }
+  
+  .form-popup-link {
+    color: #A1C7FF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    text-decoration: none;
+    @media screen and (max-width: 480px) {
+        font-size: 25px;       
+    } 
+  }
+  
+  .form-popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 34px;
+  }
+  
+  .form-popup-form input,
+  .form-popup-form textarea {
+    padding: 12px 16px;
+    color: rgba(41, 41, 41, 0.50);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4; /* 142.857% */
+    letter-spacing: 0.32px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+  }
+  
+  .form-popup-form textarea {
+    height: 80px;
+  }
+  
+  .form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #292929;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.32px;
+  }
+  
+  /* Кнопка Send */
+  .form-submit-btn {
+    margin-top: 10px;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 999px;
+    background: #292929;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center     ;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .form-submit-btn:hover {
+    background: #fff;
+    color: #000;
+  }
+  
+  /* Хрестик */
+  .form-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    font-size: 28px;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+  }
+
+.form-popup-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media screen and (max-width: 480px) {
+         width: 120px;
+         height: 138;    
+    }
+}
+
+
+
+.status-popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .status-popup-overlay.active {
+    display: flex;
+  }
+  
+  .status-popup {
+    background: #fff;
+    padding: 157px 75px 78px 75px;
+    border-radius: 20px;
+    max-width: 557px;
+    text-align: center;
+    position: relative;
+    font-family: "Plus Jakarta Sans";
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .status-popup h2 {
+    color: #292929;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2; /* 121.429% */
+    letter-spacing: -0.4px;
+    margin-bottom: 32px;
+  }
+  
+  .status-popup p {
+    color: #292929;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2; /* 200% */
+    letter-spacing: 0.32px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  
+  .status-icon {
+    margin: 20px 0;
+  }
+  
+  .status-button {
+    padding: 14px 32px;
+    border: none;
+    background: #292929;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .status-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
