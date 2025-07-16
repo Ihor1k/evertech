@@ -1,7 +1,13 @@
 .container {
-    max-width: 1440px;
-    padding: 0px 80px;
+    // max-width: 1440px;
+    // padding: 0px 80px;
+    // margin: 0 auto;
+    width: 100%;
+    max-width: 1280px; /* раніше могло бути 1440px — зменшено для кращої адаптивності */
     margin: 0 auto;
+    padding-left: clamp(16px, 5vw, 60px);
+    padding-right: clamp(16px, 5vw, 60px);
+    box-sizing: border-box;
     @media screen and (max-width: 480px) {
         max-width: 480px;
         padding: 0px 24px;

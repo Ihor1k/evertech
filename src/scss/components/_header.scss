@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* Додано */
 }
 
 .open {
@@ -25,6 +26,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: clamp(6px, 1vw, 12px);
 }
 
 .header-logo {
@@ -119,6 +122,9 @@
   display: flex;
   gap: 9px;
   align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(6px, 1vw, 12px);
+  justify-content: center;
 }
 
 // !BURGER
@@ -255,4 +261,33 @@ body.menu-open {
     .header-buttons {
       display: none;
     }
+  }
+
+
+  
+  .header-logo {
+    flex-shrink: 0; // не стискати логотип
+    min-width: 100px; // мінімальна ширина, щоб не зникав
+  }
+  
+  .header-logo img {
+    height: calc(20px + 0.8vw);
+    max-height: 48px;
+    aspect-ratio: 7 / 1; /* співвідношення для стабільного масштабу */
+    object-fit: contain;
+  }
+  
+  .header-link {
+    white-space: nowrap;
+    font-size: clamp(12px, 1.2vw, 16px);
+  }
+  
+  .header-button {
+    
+    font-size: clamp(14px, 1.4vw, 16px);
+    // padding: clamp(10px, 1.2vw, 14px) clamp(20px, 3vw, 44px);
+  }
+  
+  .header-email {
+    padding: clamp(10px, 1.2vw, 16px);
   }

@@ -70,9 +70,12 @@ table {
 }
 
 .container {
-  max-width: 1440px;
-  padding: 0px 80px;
+  width: 100%;
+  max-width: 1280px; /* раніше могло бути 1440px — зменшено для кращої адаптивності */
   margin: 0 auto;
+  padding-left: clamp(16px, 5vw, 60px);
+  padding-right: clamp(16px, 5vw, 60px);
+  box-sizing: border-box;
 }
 @media screen and (max-width: 480px) {
   .container {
@@ -100,6 +103,7 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; /* Додано */
 }
 
 .open {
@@ -110,6 +114,8 @@ table {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: clamp(6px, 1vw, 12px);
 }
 
 .header-logo {
@@ -208,6 +214,9 @@ table {
   display: flex;
   gap: 9px;
   align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(6px, 1vw, 12px);
+  justify-content: center;
 }
 
 body.menu-open {
@@ -313,10 +322,36 @@ body.menu-open {
     display: none;
   }
 }
+.header-logo {
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+.header-logo img {
+  height: calc(20px + 0.8vw);
+  max-height: 48px;
+  aspect-ratio: 7/1; /* співвідношення для стабільного масштабу */
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.header-link {
+  white-space: nowrap;
+  font-size: clamp(12px, 1.2vw, 16px);
+}
+
+.header-button {
+  font-size: clamp(14px, 1.4vw, 16px);
+}
+
+.header-email {
+  padding: clamp(10px, 1.2vw, 16px);
+}
+
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* висота секції */
+  height: clamp(400px, 100dvh, 800px);
   overflow: hidden;
 }
 @media screen and (max-width: 480px) {
@@ -357,10 +392,11 @@ body.menu-open {
 }
 
 .hero-inner {
-  margin-top: 120px;
+  margin: 120px auto 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: clamp(24px, 5vw, 80px);
 }
 @media screen and (max-width: 480px) {
   .hero-inner {
@@ -371,10 +407,11 @@ body.menu-open {
 }
 
 .hero-content {
+  flex: 1 1 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 48px;
+  gap: clamp(24px, 4vw, 48px);
 }
 @media screen and (max-width: 480px) {
   .hero-content {
@@ -387,7 +424,7 @@ body.menu-open {
   max-width: 700px;
   width: 100%;
   font-family: "Plus Jakarta Sans";
-  font-size: 62px;
+  font-size: clamp(28px, 5vw, 62px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.1; /* 68.2px */
@@ -406,7 +443,7 @@ body.menu-open {
   max-width: 680px;
   width: 100%;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 18px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
@@ -420,7 +457,7 @@ body.menu-open {
 .hero-content-buttons {
   display: flex;
   align-items: center;
-  gap: 56px;
+  gap: clamp(16px, 4vw, 56px);
 }
 @media screen and (max-width: 480px) {
   .hero-content-buttons {
@@ -431,13 +468,13 @@ body.menu-open {
 
 .hero-buttons {
   display: flex;
-  padding: 16px 32px;
+  padding: clamp(12px, 1.5vw, 16px) clamp(20px, 3vw, 32px);
   justify-content: center;
   align-items: center;
   gap: 20px;
   color: #000;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 700;
   line-height: 1.4; /* 22.4px */
@@ -474,7 +511,7 @@ body.menu-open {
 .hero-link {
   color: #A1C7FF;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.8; /* 28.8px */
@@ -493,9 +530,11 @@ body.menu-open {
 }
 
 .hero-block {
+  flex: 1 1 350px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  align-items: flex-start;
+  gap: clamp(4px, 2vw, 9px);
   position: relative;
 }
 @media screen and (max-width: 480px) {
@@ -509,6 +548,7 @@ body.menu-open {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  gap: 9px;
 }
 @media screen and (max-width: 480px) {
   .hero-block-list {
@@ -517,12 +557,21 @@ body.menu-open {
   }
 }
 
+.hero-block-item img {
+  max-width: 100%;
+  height: 100%;
+}
 @media screen and (max-width: 480px) {
   .hero-block-item img {
     display: none;
   }
 }
 
+.hero-block-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 @media screen and (max-width: 480px) {
   .hero-block-img {
     display: none;
@@ -550,16 +599,18 @@ body.menu-open {
 
 .hero-mobile-img {
   display: none;
+  max-width: 100%;
+  height: auto;
+  padding-right: 50px;
 }
 @media screen and (max-width: 480px) {
   .hero-mobile-img {
     display: block;
-    padding-right: 50px;
   }
 }
 
 .about {
-  margin-top: 120px;
+  margin-top: clamp(60px, 10vw, 120px);
 }
 @media screen and (max-width: 480px) {
   .about {
@@ -570,7 +621,7 @@ body.menu-open {
 .about-suptitle {
   color: #FFF;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.4; /* 22.4px */
@@ -581,7 +632,7 @@ body.menu-open {
   border-radius: 10px;
   border: 1px solid #A1C7FF;
   background: #292929;
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 5vw, 40px);
 }
 @media screen and (max-width: 480px) {
   .about-suptitle {
@@ -593,7 +644,7 @@ body.menu-open {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 109px;
+  margin-bottom: clamp(45px, 7vw, 109px);
 }
 @media screen and (max-width: 480px) {
   .about-content {
@@ -607,7 +658,7 @@ body.menu-open {
   width: 100%;
   color: #292929;
   font-family: "Plus Jakarta Sans";
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 62.4px */
@@ -626,7 +677,7 @@ body.menu-open {
   width: 100%;
   color: #000;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
@@ -650,8 +701,8 @@ body.menu-open {
 }
 
 .about-context {
-  margin-right: 56px;
-  width: 55%;
+  flex: 1 1 600px;
+  margin-right: clamp(16px, 1vw, 26px);
 }
 @media screen and (max-width: 480px) {
   .about-context {
@@ -814,8 +865,8 @@ body.menu-open {
   }
 }
 .why {
-  margin-top: 140px;
-  padding: 66px 80px 66px 162px;
+  margin-top: clamp(53px, 10vw, 140px);
+  padding: clamp(30px, 6vw, 66px) clamp(28px, 6vw, 80px) clamp(30px, 6vw, 66px) clamp(35px, 8vw, 162px);
   border-radius: 0px 28px 28px 0px;
   background: #FFF;
   width: 92%;
@@ -830,6 +881,8 @@ body.menu-open {
 .why-inner {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 48px;
 }
 @media screen and (max-width: 480px) {
   .why-inner {
@@ -838,7 +891,8 @@ body.menu-open {
 }
 
 .why-block {
-  width: 48%;
+  flex: 1 1 400px;
+  max-width: 600px;
 }
 @media screen and (max-width: 480px) {
   .why-block {
@@ -849,7 +903,7 @@ body.menu-open {
 .why-title {
   color: #010205;
   font-family: "Plus Jakarta Sans";
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 62.4px */
@@ -864,11 +918,11 @@ body.menu-open {
 .why-text {
   color: #000;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
-  margin: 48px 0 50px 0;
+  margin: clamp(24px, 5vw, 48px) 0 clamp(24px, 5vw, 50px) 0;
 }
 @media screen and (max-width: 480px) {
   .why-text {
@@ -890,13 +944,13 @@ body.menu-open {
 
 .why-buttons {
   display: flex;
-  padding: 16px 32px;
+  padding: clamp(12px, 1.5vw, 18px) clamp(20px, 3vw, 36px);
   justify-content: center;
   align-items: center;
   gap: 20px;
   color: #fff;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 700;
   line-height: 1.4; /* 22.4px */
@@ -933,7 +987,7 @@ body.menu-open {
 .why-link {
   color: #292929;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.8; /* 28.8px */
@@ -952,7 +1006,8 @@ body.menu-open {
 }
 
 .why-akardeon {
-  width: 50%;
+  flex: 1 1 400px;
+  max-width: 600px;
 }
 @media screen and (max-width: 480px) {
   .why-akardeon {
@@ -964,7 +1019,7 @@ body.menu-open {
 .accordion {
   display: flex;
   flex-direction: column;
-  gap: 29px;
+  gap: clamp(20px, 3vw, 29px);
 }
 
 .accordion-item {
@@ -984,15 +1039,15 @@ body.menu-open {
 .accordion-header h4 {
   color: #010205;
   font-family: "Plus Jakarta Sans";
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
   font-style: normal;
   font-weight: 600;
-  line-height: 150%; /* 36px */
+  line-height: 1.5; /* 36px */
   letter-spacing: -0.72px;
 }
 
 .accordion-icon {
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
   color: #292929;
   transition: transform 0.3s;
 }
@@ -1000,7 +1055,7 @@ body.menu-open {
 .accordion-content {
   color: #666;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
@@ -1015,11 +1070,11 @@ body.menu-open {
 .accordion-item.active .accordion-content {
   max-height: 500px; /* достатньо для вашого тексту */
   opacity: 1;
-  margin-top: 48px;
+  margin-top: clamp(24px, 5vw, 48px);
 }
 
 .offer {
-  margin-top: 140px;
+  margin-top: clamp(70px, 10vw, 140px);
 }
 @media screen and (max-width: 480px) {
   .offer {
@@ -1046,7 +1101,7 @@ body.menu-open {
 .offer-suptitle {
   color: #FFF;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.4; /* 22.4px */
@@ -1057,13 +1112,13 @@ body.menu-open {
   border-radius: 10px;
   border: 1px solid #A1C7FF;
   background: #292929;
-  margin-bottom: 36px;
+  margin-bottom: clamp(22px, 1vw, 36px);
 }
 
 .offer-title {
   color: #292929;
   font-family: "Plus Jakarta Sans";
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 62.4px */
@@ -1081,7 +1136,7 @@ body.menu-open {
   color: #000;
   text-align: center;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
@@ -1107,7 +1162,7 @@ body.menu-open {
 .offer-block {
   background: #000;
   border-radius: 28px 0px 0px 28px;
-  padding: 84px 0 50px 75px;
+  padding: clamp(30px, 5vw, 84px) 0 clamp(12px, 5vw, 50px) clamp(16px, 5vw, 75px);
   position: relative;
   z-index: 100;
 }
@@ -1146,8 +1201,10 @@ body.menu-open {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 100px;
-  margin-right: 80px;
+  flex-wrap: wrap;
+  gap: clamp(32px, 6vw, 80px);
+  margin-bottom: clamp(40px, 8vw, 100px);
+  margin-right: clamp(32px, 8vw, 80px);
   z-index: 100;
 }
 @media screen and (max-width: 480px) {
@@ -1163,7 +1220,7 @@ body.menu-open {
   width: 100%;
   color: #FFF;
   font-family: "Plus Jakarta Sans";
-  font-size: 48px;
+  font-size: clamp(24px, 4vw, 48px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 62.4px */
@@ -1181,17 +1238,17 @@ body.menu-open {
 .offer-buttons {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: clamp(6px, 2vw, 13px);
 }
 
 .offer-btn {
   border-radius: 50px;
   border: 1px solid #FFF;
   background: none;
-  padding: 13px 72px;
+  padding: clamp(9px, 1.4vw, 13px) clamp(25px, 4vw, 72px);
   color: #FFF;
   font-family: "Manrope";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 700;
   line-height: 1.4; /* 22.4px */
@@ -1219,7 +1276,8 @@ body.menu-open {
 /* Flip-картка */
 .flip-card {
   perspective: 1000px;
-  width: 460px;
+  max-width: clamp(300px, 35vw, 460px);
+  width: 100%;
   height: 460px;
   border-radius: 30px;
   overflow: hidden;
@@ -1228,12 +1286,23 @@ body.menu-open {
 @media screen and (max-width: 480px) {
   .flip-card {
     width: 277px;
+    min-height: 320px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .swiper-slide {
-    width: 85vw !important;
+  .offer-swiper {
+    padding-left: 8px;
+    padding-right: 8px;
+    overflow: visible;
+  }
+  .offer-swiper .swiper-slide {
+    width: 100% !important;
+  }
+  .flip-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
 .flip-card-inner {
@@ -1382,7 +1451,7 @@ body.menu-open {
 }
 
 .digital {
-  margin-top: 120px;
+  margin-top: clamp(70px, 10vw, 120px);
 }
 @media screen and (max-width: 480px) {
   .digital {
@@ -1394,6 +1463,8 @@ body.menu-open {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(24px, 6vw, 60px);
 }
 @media screen and (max-width: 480px) {
   .digital-context {
@@ -1408,7 +1479,7 @@ body.menu-open {
   width: 100%;
   color: #292929;
   font-family: "Plus Jakarta Sans";
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 62.4px */
@@ -1426,7 +1497,7 @@ body.menu-open {
   width: 100%;
   color: #000;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
@@ -1447,7 +1518,7 @@ body.menu-open {
   margin-top: 70px;
   background: #fff;
   border-radius: 28px 0px 0px 28px;
-  padding: 84px 80px 36px 83px;
+  padding: clamp(30px, 6vw, 84px) clamp(30px, 6vw, 80px) clamp(16px, 3vw, 36px) clamp(30px, 6vw, 83px);
 }
 @media screen and (max-width: 480px) {
   .digital-slider {
@@ -1465,12 +1536,12 @@ body.menu-open {
 .swiper-title {
   color: #010205;
   font-family: "Plus Jakarta Sans";
-  font-size: 36px;
+  font-size: clamp(20px, 3.6vw, 36px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.6; /* 57.6px */
   letter-spacing: -1.08px;
-  margin-bottom: 60px;
+  margin-bottom: clamp(24px, 5vw, 60px);
 }
 @media screen and (max-width: 480px) {
   .swiper-title {
@@ -1486,7 +1557,7 @@ body.menu-open {
   width: 100%;
   color: #878C91;
   font-family: "Plus Jakarta Sans";
-  font-size: 25px;
+  font-size: clamp(16px, 2vw, 25px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.6;
@@ -1500,7 +1571,7 @@ body.menu-open {
 }
 
 .digital-controls {
-  margin-top: 32px;
+  margin-top: clamp(24px, 4vw, 32px);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1514,7 +1585,7 @@ body.menu-open {
 
 .digital-prev,
 .digital-next {
-  padding: 16px 32px;
+  padding: clamp(12px, 2vw, 16px) clamp(20px, 4vw, 32px);
   height: 50px;
   border-radius: 70px;
   border: 1px solid #ccc;
@@ -1542,7 +1613,7 @@ body.menu-open {
 .digital-pagination {
   color: rgba(1, 2, 5, 0.4);
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.8;
@@ -1559,7 +1630,7 @@ body.menu-open {
 }
 
 .work {
-  margin-top: 120px;
+  margin-top: clamp(70px, 10vw, 120px);
 }
 @media screen and (max-width: 480px) {
   .work {
@@ -1570,7 +1641,7 @@ body.menu-open {
 .work-suptitle {
   color: #FFF;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.4; /* 22.4px */
@@ -1581,7 +1652,7 @@ body.menu-open {
   border-radius: 10px;
   border: 1px solid #A1C7FF;
   background: #292929;
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 4vw, 40px);
 }
 @media screen and (max-width: 480px) {
   .work-suptitle {
@@ -1592,7 +1663,9 @@ body.menu-open {
 .work-block {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 70px;
+  flex-wrap: wrap;
+  gap: clamp(12px, 6vw, 20px);
+  margin-bottom: clamp(40px, 6vw, 70px);
 }
 @media screen and (max-width: 480px) {
   .work-block {
@@ -1603,7 +1676,7 @@ body.menu-open {
 .work-title {
   color: #292929;
   font-family: "Plus Jakarta Sans";
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 62.4px */
@@ -1622,10 +1695,10 @@ body.menu-open {
 .work-text {
   max-width: 557px;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: clamp(20px, 4vw, 50px);
   color: #000;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */
@@ -1640,13 +1713,13 @@ body.menu-open {
 .work-button {
   color: #010205;
   font-family: "Manrope";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 700;
   line-height: 1.4; /* 22.4px */
   letter-spacing: -0.32px;
   background: none;
-  padding: 13px 43px;
+  padding: clamp(8px, 1.4vw, 13px) clamp(24px, 3vw, 43px);
   border-radius: 50px;
   border: 1px solid #010205;
   cursor: pointer;
@@ -1667,7 +1740,7 @@ body.menu-open {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 15px;
+  gap: clamp(5px, 1vw, 15px);
 }
 @media screen and (max-width: 480px) {
   .work-list {
@@ -1677,7 +1750,7 @@ body.menu-open {
 
 .work-item {
   width: 49%;
-  padding: 32px;
+  padding: clamp(24px, 3vw, 32px);
   border-radius: 20px;
   background: #FFF;
 }
@@ -1694,7 +1767,7 @@ body.menu-open {
   color: #878C91;
   text-overflow: ellipsis;
   font-family: "Plus Jakarta Sans";
-  font-size: 14px;
+  font-size: clamp(12px, 1.2vw, 14px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.6; /* 22.4px */
@@ -1704,7 +1777,7 @@ body.menu-open {
 .work-item-title {
   color: #010205;
   font-family: "Plus Jakarta Sans";
-  font-size: 26px;
+  font-size: clamp(18px, 2.4vw, 26px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.5; /* 39px */
@@ -1716,7 +1789,7 @@ body.menu-open {
   color: #666;
   text-overflow: ellipsis;
   font-family: "Plus Jakarta Sans";
-  font-size: 14px;
+  font-size: clamp(12px, 1.2vw, 14px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.6; /* 22.4px */
@@ -1725,10 +1798,10 @@ body.menu-open {
 .contacts {
   position: relative;
   width: 92%;
-  height: 100vh; /* висота секції */
+  min-height: clamp(500px, 85vh, 960px);
   overflow: hidden;
   border-radius: 0px 28px 28px 0px;
-  margin-top: 140px;
+  margin-top: clamp(70px, 10vw, 140px);
   display: flex;
 }
 @media screen and (max-width: 480px) {
@@ -1781,7 +1854,7 @@ body.menu-open {
 .contacts-suptitle {
   color: #FFF;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.4; /* 22.4px */
@@ -1791,7 +1864,7 @@ body.menu-open {
   border-radius: 10px;
   border: 1px solid #A1C7FF;
   background: #292929;
-  margin-bottom: 37px;
+  margin-bottom: clamp(20px, 4vw, 37px);
 }
 
 .contacts-title {
@@ -1800,7 +1873,7 @@ body.menu-open {
   color: #FFF;
   text-align: center;
   font-family: "Plus Jakarta Sans";
-  font-size: 62px;
+  font-size: clamp(28px, 5vw, 62px);
   font-style: normal;
   font-weight: 600;
   line-height: 1.3; /* 80.6px */
@@ -1816,11 +1889,11 @@ body.menu-open {
 .contacts-text {
   max-width: 557px;
   width: 100%;
-  margin: 51px 0;
+  margin: clamp(24px, 6vw, 51px) 0;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   font-family: "Plus Jakarta Sans";
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.8; /* 28.8px */

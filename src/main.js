@@ -42,81 +42,185 @@ marketing: [
 ]
 };
 
-function renderCards(category) {
-swiperContainer.innerHTML = '';
+// function renderCards(category) {
+// swiperContainer.innerHTML = '';
 
-data[category].forEach(item => {
+// data[category].forEach(item => {
+//     const slide = document.createElement('div');
+//     slide.className = 'swiper-slide';
+//     slide.innerHTML = `
+//     <div class="flip-card">
+//         <div class="flip-card-inner">
+//         <div class="flip-card-front">
+//             <video class="card-video" autoplay muted loop playsinline>
+//             <source src="${item.video}" type="video/mp4">
+//             </video>
+//             <div class="card-color-overlay"></div>
+//             <div class="card-overlay">
+//             <p class="card-label">${category === 'sports' ? 'Sports & Esports Data Subscription' : 'Digital Marketing & Web Services'}</p>
+//             <h4 class="card-title">${item.title}</h4>
+//             </div>
+//         </div>
+//         <div class="flip-card-back">
+//             <p class="card-label">${category === 'sports' ? 'Sports & Esports Data Subscription' : 'Digital Marketing & Web Services'}</p>
+//             <div class="flip-card-back-inner">
+//                 <h4 class="card-back-title">${item.title}</h4>
+//                 <p>${item.text}</p>
+//             </div>
+//         </div>
+//         </div>
+//     </div>
+//     `;
+//     swiperContainer.appendChild(slide);
+// });
+
+// swiper.update();
+// }
+
+// // Swiper ініціалізація
+// const swiper = new Swiper('.offer-swiper', {
+// slidesPerView: 3,
+// spaceBetween: -100,
+// breakpoints: {
+//     328: { slidesPerView: 1 },
+//     768: { slidesPerView: 2 },
+//     1200: { slidesPerView: 2.5 },
+// }
+// });
+
+// // Початково показуємо sports
+// renderCards('sports');
+
+// // Перемикаємо категорії по кліку
+// document.querySelectorAll('.offer-btn').forEach(btn => {
+// btn.addEventListener('click', () => {
+//     document.querySelectorAll('.offer-btn').forEach(b => b.classList.remove('visibile'));
+//     btn.classList.add('visibile');
+
+//     const type = btn.getAttribute('data-type');
+//     renderCards(type);
+// });
+// });
+
+
+// const digitalSwiper = new Swiper('.digital-swiper', {
+//     slidesPerView: 1,
+//     loop: true,
+//     navigation: {
+//       nextEl: '.digital-next',
+//       prevEl: '.digital-prev',
+//     },
+//     on: {
+//       slideChange: function () {
+//         const current = (this.realIndex + 1).toString().padStart(2, '0');
+//         document.querySelector('.digital-current').textContent = current;
+//       }
+//     }
+//   });
+
+
+// 1. Рендерим HTML слайдів
+function renderCards(category) {
+  swiperContainer.innerHTML = '';
+
+  data[category].forEach(item => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
-    <div class="flip-card">
+      <div class="flip-card">
         <div class="flip-card-inner">
-        <div class="flip-card-front">
+          <div class="flip-card-front">
             <video class="card-video" autoplay muted loop playsinline>
-            <source src="${item.video}" type="video/mp4">
+              <source src="${item.video}" type="video/mp4">
             </video>
             <div class="card-color-overlay"></div>
             <div class="card-overlay">
-            <p class="card-label">${category === 'sports' ? 'Sports & Esports Data Subscription' : 'Digital Marketing & Web Services'}</p>
-            <h4 class="card-title">${item.title}</h4>
+              <p class="card-label">${category === 'sports' ? 'Sports & Esports Data Subscription' : 'Digital Marketing & Web Services'}</p>
+              <h4 class="card-title">${item.title}</h4>
             </div>
-        </div>
-        <div class="flip-card-back">
+          </div>
+          <div class="flip-card-back">
             <p class="card-label">${category === 'sports' ? 'Sports & Esports Data Subscription' : 'Digital Marketing & Web Services'}</p>
             <div class="flip-card-back-inner">
-                <h4 class="card-back-title">${item.title}</h4>
-                <p>${item.text}</p>
+              <h4 class="card-back-title">${item.title}</h4>
+              <p>${item.text}</p>
             </div>
+          </div>
         </div>
-        </div>
-    </div>
+      </div>
     `;
     swiperContainer.appendChild(slide);
-});
-
-swiper.update();
+  });
 }
 
-// Swiper ініціалізація
-const swiper = new Swiper('.offer-swiper', {
-slidesPerView: 3,
-spaceBetween: -100,
-breakpoints: {
-    328: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1200: { slidesPerView: 2.5 },
-}
-});
-
-// Початково показуємо sports
+// 2. Спочатку відмальовуємо перші слайди
 renderCards('sports');
 
-// Перемикаємо категорії по кліку
+// 3. Потім ініціалізуємо Swiper
+const offerSwiper = new Swiper('.offer-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 0, // ← критично!
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 12, // ✅ трішки повітря між слайдами
+    },
+    375: {
+      slidesPerView: 1,
+      spaceBetween: 14,
+    },
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+    1200: {
+      slidesPerView: 2.5,
+      spaceBetween: 32,
+    }
+  }
+});
+
+// 4. Потім вказуємо: при зміні кнопок — оновлюємо DOM + swiper
 document.querySelectorAll('.offer-btn').forEach(btn => {
-btn.addEventListener('click', () => {
+  btn.addEventListener('click', () => {
     document.querySelectorAll('.offer-btn').forEach(b => b.classList.remove('visibile'));
     btn.classList.add('visibile');
 
     const type = btn.getAttribute('data-type');
     renderCards(type);
-});
-});
-
-
-const digitalSwiper = new Swiper('.digital-swiper', {
-    slidesPerView: 1,
-    loop: true,
-    navigation: {
-      nextEl: '.digital-next',
-      prevEl: '.digital-prev',
-    },
-    on: {
-      slideChange: function () {
-        const current = (this.realIndex + 1).toString().padStart(2, '0');
-        document.querySelector('.digital-current').textContent = current;
-      }
-    }
+    offerSwiper.update(); // важливо!
   });
+});
+
+
+// Digital swiper
+const digitalSwiper = new Swiper('.digital-swiper', {
+  slidesPerView: 1,
+  loop: true,
+  navigation: {
+    nextEl: '.digital-next',
+    prevEl: '.digital-prev',
+  },
+  on: {
+    slideChange: function () {
+      const current = (this.realIndex + 1).toString().padStart(2, '0');
+      document.querySelector('.digital-current').textContent = current;
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
 
   const popup = document.getElementById('formPopup');
   const openPopupButtons = document.querySelectorAll(
