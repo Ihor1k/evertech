@@ -153,8 +153,19 @@ function renderCards(category) {
   });
 }
 
+function activateCardFlipOnMobile() {
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  }
+}
+
 // 2. Спочатку відмальовуємо перші слайди
 renderCards('sports');
+activateCardFlipOnMobile();
 
 // 3. Потім ініціалізуємо Swiper
 const offerSwiper = new Swiper('.offer-swiper', {
@@ -193,6 +204,7 @@ document.querySelectorAll('.offer-btn').forEach(btn => {
     const type = btn.getAttribute('data-type');
     renderCards(type);
     offerSwiper.update(); // важливо!
+    activateCardFlipOnMobile();
   });
 });
 

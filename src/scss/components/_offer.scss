@@ -248,6 +248,10 @@
     -webkit-transform-style: preserve-3d;
     border-radius: 20px;
   }
+
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
   
   .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
