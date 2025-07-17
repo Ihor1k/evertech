@@ -1407,6 +1407,9 @@ body.menu-open {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
   }
+  .flip-card-back {
+    z-index: 100;
+  }
 }
 .flip-card-back-inner p {
   color: #FFF;
