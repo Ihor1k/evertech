@@ -1390,8 +1390,6 @@ body.menu-open {
   -webkit-transform: rotateY(180deg);
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1400,6 +1398,11 @@ body.menu-open {
   font-family: "Plus Jakarta Sans";
   font-size: 16px;
   line-height: 1.6;
+}
+@media (max-width: 480px) {
+  .flip-card-back {
+    z-index: 100;
+  }
 }
 
 .flip-card-back-inner p {

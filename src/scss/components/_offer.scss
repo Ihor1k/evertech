@@ -323,8 +323,6 @@
     -webkit-transform: rotateY(180deg);
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -333,7 +331,9 @@
     font-family: "Plus Jakarta Sans";
     font-size: 16px;
     line-height: 1.6;
-    
+    @media (max-width: 480px) {
+      z-index: 100;
+    }
   }
 
   // @media (max-width: 480px) {
