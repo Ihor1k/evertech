@@ -5,6 +5,7 @@ html {
 body {
     background-color: #EEF4FD;
     -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
 }
 
 body.noscroll {

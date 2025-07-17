@@ -197,6 +197,7 @@
   /* Flip-картка */
   .flip-card {
     perspective: 1000px;
+    -webkit-perspective: 1000px;
     max-width: clamp(300px, 35vw, 460px);
     width: 100%;
     // width: 460px;
@@ -247,6 +248,7 @@
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     border-radius: 20px;
+    transform: rotateY(0deg);
   }
 
   .flip-card.flipped .flip-card-inner {
