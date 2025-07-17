@@ -5,8 +5,6 @@ html {
 
 body {
   background-color: #EEF4FD;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -712,6 +710,7 @@ body.menu-open {
   .about-context {
     margin: unset;
     width: 100%;
+    flex: unset;
   }
 }
 
@@ -2030,15 +2029,18 @@ body.menu-open {
   background: rgba(8, 8, 8, 0.35);
   -webkit-backdrop-filter: blur(7.5999999046px);
           backdrop-filter: blur(7.5999999046px);
-  display: none;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   z-index: 999;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Відкритий стан */
 .form-popup-overlay.active {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Вікно форми */

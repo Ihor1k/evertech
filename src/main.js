@@ -247,6 +247,11 @@ const digitalSwiper = new Swiper('.digital-swiper', {
   openPopupButtons.forEach(button => {
     button.addEventListener('click', () => {
       popup.classList.add('active');
+      document.body.style.overflow = 'hidden'; 
+      // const rect = e.target.getBoundingClientRect(); // координати кнопки
+      // popup.style.position = 'absolute'; // не fixed
+      // popup.style.top = `${rect.bottom + window.scrollY}px`;
+      // popup.style.left = `${rect.left + window.scrollX}px`;
     });
   });
 
@@ -254,12 +259,14 @@ const digitalSwiper = new Swiper('.digital-swiper', {
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       popup.classList.remove('active');
+      document.body.style.overflow = '';
     });
   }
 
   window.addEventListener('click', (e) => {
     if (e.target === popup) {
       popup.classList.remove('active');
+      document.body.style.overflow = '';
     }
   });
 
@@ -289,6 +296,7 @@ document.querySelectorAll('.status-button, .status-close').forEach(btn => {
     btn.addEventListener('click', () => {
       document.getElementById('successPopup').classList.remove('active');
       document.getElementById('errorPopup').classList.remove('active');
+      document.body.style.overflow = '';
     });
   });
 

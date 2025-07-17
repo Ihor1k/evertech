@@ -6,15 +6,19 @@
     height: 100%;
     background: rgba(8, 8, 8, 0.35);
     backdrop-filter: blur(7.599999904632568px);
-    display: none;
+    // display: none;
+    display: flex;
     justify-content: flex-end;
     align-items: center;
     z-index: 999;
+    opacity: 0;
+    visibility: hidden;
   }
   
   /* Відкритий стан */
   .form-popup-overlay.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
   }
   
   /* Вікно форми */
