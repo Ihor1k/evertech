@@ -1319,10 +1319,6 @@ body.menu-open {
   transform: rotateY(0deg);
 }
 
-.flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
@@ -1391,6 +1387,11 @@ body.menu-open {
   background: #A1C7FF;
   color: #010205;
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1401,6 +1402,12 @@ body.menu-open {
   line-height: 1.6;
 }
 
+@media (max-width: 480px) {
+  .flip-card-back-inner, .flip-card-back .card-label {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+  }
+}
 .flip-card-back-inner p {
   color: #FFF;
   font-family: "Plus Jakarta Sans";
