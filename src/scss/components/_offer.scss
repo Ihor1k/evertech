@@ -336,16 +336,12 @@
     
   }
 
-  @media (max-width: 480px) {
-    .flip-card-back-inner, .flip-card-back .card-label {
-      transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-    }
-
-    .flip-card-back {
-      z-index: 100;
-    }
-  }
+  // @media (max-width: 480px) {
+  //   .flip-card-back-inner, .flip-card-back .card-label {
+  //     transform: rotateY(180deg);
+  //     -webkit-transform: rotateY(180deg);
+  //   }
+  // }
 
   .flip-card-back-inner p {
     color: #FFF;
